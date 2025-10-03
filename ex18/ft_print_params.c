@@ -6,26 +6,28 @@
 /*   By: rcamps-v <rcamps-v@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 10:02:22 by rcamps-v          #+#    #+#             */
-/*   Updated: 2025/09/25 11:12:37 by rcamps-v         ###   ########.fr       */
+/*   Updated: 2025/10/01 10:45:57 by rcamps-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	ft_putchar(char c);
 
-int	main(int argc, char *argv[])
+int	main(int ac, char **av)
 {
 	int	i;
 	int	j;
 
+	ac = 1;
 	i = 1;
-	j = 0;
-	while (i < argc)
+	while (av[i])
 	{
-		while (argv[i][j] != 0)
-			write(1, &argv[i][j++], 1);
-		i++;
 		j = 0;
-		write(1, "\n", 1);
+		while (av[i][j])
+		{
+			ft_putchar(av[i][j]);
+			j++;
+		}
+		ft_putchar('\n');
+		i++;
 	}
-	return (0);
 }

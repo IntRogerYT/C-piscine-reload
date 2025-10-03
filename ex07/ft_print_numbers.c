@@ -6,21 +6,21 @@
 /*   By: rcamps-v <rcamps-v@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 10:16:06 by rcamps-v          #+#    #+#             */
-/*   Updated: 2025/09/23 10:17:11 by rcamps-v         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:33:21 by rcamps-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	ft_putchar(char c);
 
 void	ft_print_numbers(void)
 {
-	char	c;
+	char	a;
 
-	c = '0';
-	while (c <= '9')
+	a = '0';
+	while (a <= '9')
 	{
-		write(1, &c, 1);
-		c++;
+		ft_putchar(a);
+		a++;
 	}
 }
 /*

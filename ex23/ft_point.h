@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcamps-v <rcamps-v@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/22 16:20:32 by rcamps-v          #+#    #+#             */
-/*   Updated: 2025/09/30 14:28:35 by rcamps-v         ###   ########.fr       */
+/*   Created: 2025/09/29 11:41:47 by rcamps-v          #+#    #+#             */
+/*   Updated: 2025/09/29 11:50:35 by rcamps-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#ifndef FT_POINT_H
+# define FT_POINT_H
 
-void	ft_print_alphabet(void)
+typedef struct T_POINT
 {
-	char	a;
+	int	x;
+	int	y;
+}	t_point;
 
-	a = 'a';
-	while (a <= 'z')
-	{
-		ft_putchar(a);
-		a++;
-	}
-}
+#endif

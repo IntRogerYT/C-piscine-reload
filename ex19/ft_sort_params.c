@@ -6,62 +6,62 @@
 /*   By: rcamps-v <rcamps-v@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 11:14:37 by rcamps-v          #+#    #+#             */
-/*   Updated: 2025/09/26 13:04:05 by rcamps-v         ###   ########.fr       */
+/*   Updated: 2025/10/01 10:47:17 by rcamps-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != 0)
-	{
-		write(1, &str[i++], 1);
-	}
-}
+void	ft_putchar(char c);
 
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (s1[i] || s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+	while ((s1[i] == s2[i]) && (s1[i] != '\0') && (s2[i] != '\0'))
 		i++;
-	}
-	return (0);
+	return (s1[i] - s2[i]);
 }
 
-int	main(int argc, char **argv)
+void	ft_print_params(char **av)
 {
-	char	*temp;
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 1;
-	j = 1;
-	while (i < argc - 1)
+	while (av[i])
 	{
-		if (ft_strcmp(argv[i], argv[i + 1]) > 0)
+		j = 0;
+		while (av[i][j])
 		{
-			temp = argv[i];
-			argv[i] = argv[i + 1];
-			argv[i + 1] = temp;
-			i = 1;
+			ft_putchar(av[i][j]);
+			j++;
 		}
-		else
-			i++;
+		ft_putchar('\n');
+		i++;
 	}
-	while (j < argc)
+}
+
+int	main(int ac, char **av)
+{
+	int		i;
+	int		j;
+	char	*temp;
+
+	i = 1;
+	while (i < ac)
 	{
-		ft_putstr(argv[j]);
-		write(1, "\n", 1);
-		j++;
+		j = 1;
+		while (j < ac)
+		{
+			if (ft_strcmp(av[i], av[j]) < 0)
+			{
+				temp = av[i];
+				av[i] = av[j];
+				av[j] = temp;
+			}
+			j++;
+		}
+		i++;
 	}
-	return (0);
+	ft_print_params(av);
 }

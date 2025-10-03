@@ -6,7 +6,7 @@
 /*   By: rcamps-v <rcamps-v@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:47:41 by rcamps-v          #+#    #+#             */
-/*   Updated: 2025/09/25 12:10:55 by rcamps-v         ###   ########.fr       */
+/*   Updated: 2025/10/01 11:00:31 by rcamps-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 int	ft_iterative_factorial(int nb)
 {
-	int	result;
+	int	res;
 
-	result = 1;
-	if (nb == 0)
-		return (1);
-	else if (nb < 0)
-		return (-1);
-	else
+	res = 1;
+	if (nb < 0)
+		return (0);
+	if (nb > 12)
+		return (0);
+	while (nb > 1)
 	{
-		while (nb >= 1)
-		{
-			result *= nb;
-			nb--;
-		}
-		return (result);
+		res *= nb;
+		nb--;
 	}
+	return (res);
 }
 /*
 int	main(void)

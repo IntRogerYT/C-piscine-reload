@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_point.c                                         :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcamps-v <rcamps-v@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/29 11:54:04 by rcamps-v          #+#    #+#             */
-/*   Updated: 2025/09/29 11:56:17 by rcamps-v         ###   ########.fr       */
+/*   Created: 2025/09/30 11:36:26 by rcamps-v          #+#    #+#             */
+/*   Updated: 2025/09/30 11:51:55 by rcamps-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_point.h"
-
-void	set_point(t_point *point)
+/*int     ft_strlen(char *str)
 {
-	point->x = 42;
-	point->y = 21;
-}
+        int     count;
 
-int	main(void)
+        count = 0;
+        while (str[count] != 0)
+        {
+                count++;
+        }
+        return (count);
+}*/
+int	ft_count_if(char **tab, int (*f)(char*))
 {
-	t_point	point;
+	int	count;
+	int	i;
 
-	set_point(&point);
-	return (0);
+	count = 0;
+	i = 0;
+	while (tab[i])
+	{
+		if (f(tab[i]) == 1)
+			count++;
+		i++;
+	}
+	return (count);
 }
